@@ -4,8 +4,8 @@ const prisma = new PrismaClient()
 
 exports.handler = async (event, context, callback) => {
   try {
-    const posts = await prisma.categories.findMany({
-      //include: { author: true }
+    const posts = await prisma.post.findMany({
+      include: { author: true }
     })
     return {
       statusCode: 200,
